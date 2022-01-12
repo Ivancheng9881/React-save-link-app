@@ -7,32 +7,37 @@ import Header from "./components/Header";
 const App = () => {
   const [links, setLinks] = useState([
     {
+      key: 1,
       id: nanoid(),
-      tag: "Google",
+      tag: "google",
       text: "www.Google.com",
       date: "12/01/2022",
     },
     {
+      key: 2,
       id: nanoid(),
-      tag: "Youtube",
+      tag: "youtube",
       text: "www.Youtube.com",
       date: "12/01/2022",
     },
     {
+      key: 3,
       id: nanoid(),
-      tag: "Duck Duck Go",
+      tag: "duck duck go",
       text: "www.duckduckgo.com",
       date: "08/01/2022",
     },
     {
+      key: 4,
       id: nanoid(),
-      tag: "Reddit",
+      tag: "reddit",
       text: "www.Reddit.com",
       date: "08/01/2022",
     },
     {
+      key: 5,
       id: nanoid(),
-      tag: "WayBackMachine",
+      tag: "waybackmachine",
       text: "www.archive.org/web/",
       date: "08/01/2022",
     },
@@ -90,6 +95,5 @@ const App = () => {
   );
 };
 
-// localStorage.clear();
 
 export default App;
