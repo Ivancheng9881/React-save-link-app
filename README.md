@@ -7,4 +7,3 @@ Additional features added:
 3. saved to local storage
 4. search filter for tags
 5. delete link 
-6. used css grids instead of bootstrap grids
