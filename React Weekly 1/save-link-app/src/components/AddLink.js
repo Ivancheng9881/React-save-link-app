@@ -1,14 +1,19 @@
 import { useState } from "react";
+import { Alert } from "reactstrap";
 
 const AddLink = ({ handleAddLink }) => {
   const [urlText, setUrlText] = useState("");
   const [tag, setTag] = useState("");
+  const [error, setError] = useState("");
   const characterLimit = 200;
+  const tagCharacterLimit = 50;
 
   const handleChange = (event) => {
     // console.log(event.target.value);
+    event.preventDefault();
     if (characterLimit - event.target.value.length >= 0) {
       setUrlText(event.target.value);
+      setError("");
     }
   };
 
@@ -17,11 +22,19 @@ const AddLink = ({ handleAddLink }) => {
       handleAddLink(urlText, tag);
       setUrlText("");
       setTag("");
+      setError("");
+    } else {
+      console.log("No input values added");
+      Alert("Please input both a tag and a URL");
+      setError("Please input both a tag and a URL");
     }
   };
 
   const handleChangeTag = (event) => {
-    setTag(event.target.value);
+    event.preventDefault();
+    if (tagCharacterLimit - event.target.value.length >= 0) {
+      setTag(event.target.value);
+    }
   };
 
   return (
@@ -46,6 +59,11 @@ const AddLink = ({ handleAddLink }) => {
           Save
         </button>
       </div>
+      {error && (
+        <div variant="danger" className="error">
+          {error}
+        </div>
+      )}
     </div>
   );
 };
